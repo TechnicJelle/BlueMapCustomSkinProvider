@@ -1,0 +1,9 @@
+name: BlueMapCustomSkinProvider
+version: ${project.version}
+main: com.technicjelle.bluemapcustomskinprovider.BlueMapCustomSkinProvider
+api-version: 1.13
+depend:
+  - BlueMap
+authors: [ TechnicJelle ]
+description: ${project.description}
+website: ${project.url}
