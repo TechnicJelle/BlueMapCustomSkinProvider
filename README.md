@@ -8,6 +8,13 @@ Compatible with Paper 1.13+, just like BlueMap itself.
 
 To reload this plugin, just reload BlueMap itself with `/bluemap reload`.
 
+## Config
+There's just one config option, the URL of the skin server:
+```yaml
+# Available placeholders: {UUID} and {USERNAME}
+url: "https://minotar.net/skin/{UUID}"
+```
+
 ## [Click here to download!](../../releases/latest)
 
 ## Support
