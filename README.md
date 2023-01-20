@@ -1,6 +1,6 @@
 # BlueMap Custom Skin Provider
 
-[![GitHub Total Downloads](https://img.shields.io/github/downloads/TechnicJelle/BlueMapCustomSkinProvider/total?label=Downloads&color=success "Click here to download the plugin")](https://github.com/TechnicJelle/BlueMapCustomSkinProvider/releases/latest)
+[![GitHub Total Downloads](https://img.shields.io/github/downloads/TechnicJelle/BlueMapCustomSkinProvider/total?color=success&label=Downloads "Click here to download the plugin")](https://github.com/TechnicJelle/BlueMapCustomSkinProvider/releases/latest)
 
 Little Minecraft Paper plugin for the people who want to use a custom skin server for [BlueMap](https://github.com/BlueMap-Minecraft/BlueMap).
 
