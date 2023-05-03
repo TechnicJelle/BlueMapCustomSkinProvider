@@ -6,7 +6,7 @@
 
 	<groupId>com.technicjelle</groupId>
 	<artifactId>BlueMapCustomSkinProvider</artifactId>
-	<version>1.1</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 
 	<name>BlueMapCustomSkinProvider</name>
@@ -37,7 +37,7 @@
 					<relocations>
 						<relocation>
 							<pattern>org.bstats</pattern>
-							<shadedPattern>com.technicjelle.bluemapfloodgate</shadedPattern>
+							<shadedPattern>com.technicjelle.bluemapcustomskinprovider</shadedPattern>
 						</relocation>
 					</relocations>
 				</configuration>
@@ -78,6 +78,12 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.github.TechnicJelle</groupId>
+			<artifactId>UpdateCheckerJava</artifactId>
+			<version>v1.0</version>
+			<scope>compile</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.destroystokyo.paper</groupId>
 			<artifactId>paper-api</artifactId>

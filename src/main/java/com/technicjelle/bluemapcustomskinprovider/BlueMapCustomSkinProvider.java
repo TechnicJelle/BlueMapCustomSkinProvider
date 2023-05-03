@@ -5,6 +5,7 @@ import de.bluecolored.bluemap.api.plugin.SkinProvider;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import com.technicjelle.UpdateChecker;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -27,7 +28,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 	public void onEnable() {
 		new Metrics(this, 18368);
 
-		UpdateChecker.check("TechnicJelle", "BlueMapCustomSkinProvider", getDescription().getVersion());
+		UpdateChecker.checkAsync("TechnicJelle", "BlueMapCustomSkinProvider", getDescription().getVersion());
 
 		BlueMapAPI.onEnable(blueMapOnEnableListener);
 
