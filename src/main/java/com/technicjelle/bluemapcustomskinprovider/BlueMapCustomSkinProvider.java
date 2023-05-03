@@ -2,6 +2,7 @@ package com.technicjelle.bluemapcustomskinprovider;
 
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.plugin.SkinProvider;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,12 +25,17 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		new Metrics(this, 18368);
+
+		UpdateChecker.check("TechnicJelle", "BlueMapCustomSkinProvider", getDescription().getVersion());
+
 		BlueMapAPI.onEnable(blueMapOnEnableListener);
 
 		getLogger().info("BlueMapCustomSkinProvider plugin enabled!");
 	}
 
 	private final Consumer<BlueMapAPI> blueMapOnEnableListener = blueMapAPI -> {
+		UpdateChecker.logUpdateMessage(getLogger());
 
 		// Setup config
 		if(getDataFolder().mkdirs()) getLogger().info("Created plugin config directory");
@@ -49,7 +55,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 		//Load config values into variables
 		String url = getConfig().getString("url");
 
-		SkinProvider floodgateSkinProvider = playerUUID -> {
+		SkinProvider customSkinProvider = playerUUID -> {
 			String username = getServer().getOfflinePlayer(playerUUID).getName();
 			String localUrl = url.replace("{UUID}", playerUUID.toString()).replace("{USERNAME}", username);
 			getLogger().info("Downloading skin for " + username + " from " + localUrl);
@@ -57,7 +63,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 			return Optional.ofNullable(img);
 		};
 
-		blueMapAPI.getPlugin().setSkinProvider(floodgateSkinProvider);
+		blueMapAPI.getPlugin().setSkinProvider(customSkinProvider);
 	};
 
 

@@ -7,3 +7,5 @@ depend:
 authors: [ TechnicJelle ]
 description: ${project.description}
 website: ${project.url}
+loadbefore:
+  - BlueMapFloodgate
