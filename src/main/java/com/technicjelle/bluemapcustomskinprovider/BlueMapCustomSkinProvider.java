@@ -23,12 +23,14 @@ import java.util.logging.Level;
 
 @SuppressWarnings("SameParameterValue")
 public final class BlueMapCustomSkinProvider extends JavaPlugin {
+	UpdateChecker updateChecker;
 
 	@Override
 	public void onEnable() {
 		new Metrics(this, 18368);
 
-		UpdateChecker.checkAsync("TechnicJelle", "BlueMapCustomSkinProvider", getDescription().getVersion());
+		updateChecker = new UpdateChecker("TechnicJelle", "BlueMapCustomSkinProvider", getDescription().getVersion());
+		updateChecker.checkAsync();
 
 		BlueMapAPI.onEnable(blueMapOnEnableListener);
 
@@ -36,7 +38,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 	}
 
 	private final Consumer<BlueMapAPI> blueMapOnEnableListener = blueMapAPI -> {
-		UpdateChecker.logUpdateMessage(getLogger());
+		updateChecker.logUpdateMessage(getLogger());
 
 		// Setup config
 		if(getDataFolder().mkdirs()) getLogger().info("Created plugin config directory");
