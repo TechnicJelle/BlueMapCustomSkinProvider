@@ -37,7 +37,7 @@
 					<relocations>
 						<relocation>
 							<pattern>org.bstats</pattern>
-							<shadedPattern>com.technicjelle.bluemapcustomskinprovider</shadedPattern>
+							<shadedPattern>com.technicjelle.bluemapcustomskinprovider.shadow.bstats</shadedPattern>
 						</relocation>
 					</relocations>
 				</configuration>
