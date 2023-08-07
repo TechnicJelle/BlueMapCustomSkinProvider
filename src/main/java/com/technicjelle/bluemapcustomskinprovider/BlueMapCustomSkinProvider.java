@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.logging.Level;
 
 public final class BlueMapCustomSkinProvider extends JavaPlugin {
 	UpdateChecker updateChecker;
@@ -34,7 +35,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 		try {
 			MCUtils.copyPluginResourceToConfigDir(this, "config.yml", "config.yml", false);
 		} catch (IOException e) {
-			e.printStackTrace();
+			getLogger().log(Level.SEVERE, "Failed to copy config.yml from jar to config folder!", e);
 		}
 
 		//Load config from disk
@@ -45,6 +46,8 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 
 		SkinProvider customSkinProvider = playerUUID -> {
 			String username = getServer().getOfflinePlayer(playerUUID).getName();
+			if (username == null)
+				username = playerUUID.toString();
 			String localUrl = url.replace("{UUID}", playerUUID.toString()).replace("{USERNAME}", username);
 			getLogger().info("Downloading skin for " + username + " from " + localUrl);
 			BufferedImage img = MCUtils.downloadImage(localUrl);
