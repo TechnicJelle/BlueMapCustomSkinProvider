@@ -1,2 +1,6 @@
+# Define as a URL that is reachable as the server, use placeholders to get player specific information.
 # Available placeholders: {UUID} and {USERNAME}
+# Set to "skinsrestorer" to enable skinrestorerAPI V15 support
+
 url: "https://minotar.net/skin/{UUID}"
+#url: skinsrestorer
