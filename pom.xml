@@ -6,7 +6,7 @@
 
 	<groupId>com.technicjelle</groupId>
 	<artifactId>BlueMapCustomSkinProvider</artifactId>
-	<version>1.5</version>
+	<version>1.6</version>
 	<packaging>jar</packaging>
 
 	<name>BlueMapCustomSkinProvider</name>
@@ -64,6 +64,10 @@
 
 	<repositories>
 		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+		<repository>
 			<id>papermc-repo</id>
 			<url>https://repo.papermc.io/repository/maven-public/</url>
 		</repository>
@@ -75,9 +79,21 @@
 			<id>jitpack.io</id>
 			<url>https://jitpack.io</url>
 		</repository>
+		<!-- SkinsRestorer API -->
+		<repository>
+			<id>codemc</id>
+			<url>https://repo.codemc.org/repository/maven-public/</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
+		<!-- SkinsRestorer API -->
+		<dependency>
+			<groupId>net.skinsrestorer</groupId>
+			<artifactId>skinsrestorer-api</artifactId>
+			<version>15.0.3</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.github.TechnicJelle</groupId>
 			<artifactId>UpdateCheckerJava</artifactId>
@@ -113,6 +129,11 @@
 			<artifactId>bstats-bukkit</artifactId>
 			<version>3.0.2</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20231013</version>
 		</dependency>
 	</dependencies>
 </project>
