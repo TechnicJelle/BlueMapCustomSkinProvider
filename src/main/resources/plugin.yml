@@ -4,7 +4,8 @@ main: com.technicjelle.bluemapcustomskinprovider.BlueMapCustomSkinProvider
 api-version: 1.13
 depend:
   - BlueMap
-authors: [ TechnicJelle ]
+softdepend: [ "SkinsRestorer" ]
+authors: [ TechnicJelle, Cerothen ]
 description: ${project.description}
 website: ${project.url}
 loadbefore:
