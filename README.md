@@ -7,13 +7,19 @@ Little Minecraft Paper plugin for the people who want to use a custom skin serve
 
 Compatible with Paper 1.13+, just like BlueMap itself.
 
+SkinsRestorerAPI V15 is supported if using that integration.
+
 To reload this plugin, just reload BlueMap itself with `/bluemap reload`.
 
 ## Config
 There's just one config option, the URL of the skin server:
 ```yaml
+# Define as a URL that is reachable as the server, use placeholders to get player specific information.
 # Available placeholders: {UUID} and {USERNAME}
+# Set to "skinsrestorer" to enable skinrestorerAPI V15 support
+
 url: "https://minotar.net/skin/{UUID}"
+#url: skinsrestorer
 ```
 
 ## [Click here to download!](../../releases/latest)
