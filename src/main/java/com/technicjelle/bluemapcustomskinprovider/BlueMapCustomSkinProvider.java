@@ -1,11 +1,10 @@
 package com.technicjelle.bluemapcustomskinprovider;
 
-import com.technicjelle.MCUtils;
+import com.technicjelle.UpdateChecker;
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.plugin.SkinProvider;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
-import com.technicjelle.UpdateChecker;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -14,6 +13,9 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.logging.Level;
+
+import static com.technicjelle.MCUtils.ConfigUtils.copyPluginResourceToConfigDir;
+import static com.technicjelle.MCUtils.ImageUtils.downloadImage;
 
 public final class BlueMapCustomSkinProvider extends JavaPlugin {
 	UpdateChecker updateChecker;
@@ -35,7 +37,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 
 		//Copy config.yml from jar to config folder
 		try {
-			MCUtils.copyPluginResourceToConfigDir(this, "config.yml", "config.yml", false);
+			copyPluginResourceToConfigDir(this, "config.yml", "config.yml", false);
 		} catch (IOException e) {
 			getLogger().log(Level.SEVERE, "Failed to copy config.yml from jar to config folder!", e);
 		}
@@ -55,7 +57,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 					.replace("{USERNAME}", username)
 					.replace("{UUID-}", uuid.replace("-", ""));
 			getLogger().info("Downloading skin for " + username + " from " + localUrl);
-			BufferedImage img = MCUtils.downloadImage(localUrl);
+			BufferedImage img = downloadImage(localUrl);
 			return Optional.ofNullable(img);
 		};
 
