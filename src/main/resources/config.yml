@@ -1,2 +1,3 @@
-# Available placeholders: {UUID} and {USERNAME}
+# Available placeholders: {UUID},{UUID-},{USERNAME}
+# {UUID-}: UUID of the player without "-"
 url: "https://minotar.net/skin/{UUID}"
