@@ -49,7 +49,11 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 		SkinProvider customSkinProvider = playerUUID -> {
 			@Nullable String bukkitName = getServer().getOfflinePlayer(playerUUID).getName();
 			@NotNull String username = bukkitName != null ? bukkitName : playerUUID.toString();
-			String localUrl = url.replace("{UUID}", playerUUID.toString()).replace("{USERNAME}", username).replace("{UUID-}", playerUUID.toString().replace("-", ""));
+			@NotNull String uuid = playerUUID.toString();
+			String localUrl = url
+					.replace("{UUID}", uuid)
+					.replace("{USERNAME}", username)
+					.replace("{UUID-}", uuid.replace("-", ""));
 			getLogger().info("Downloading skin for " + username + " from " + localUrl);
 			BufferedImage img = MCUtils.downloadImage(localUrl);
 			return Optional.ofNullable(img);
