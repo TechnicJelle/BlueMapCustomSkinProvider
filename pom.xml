@@ -6,14 +6,14 @@
 
 	<groupId>com.technicjelle</groupId>
 	<artifactId>BlueMapCustomSkinProvider</artifactId>
-	<version>1.5</version>
+	<version>1.6</version>
 	<packaging>jar</packaging>
 
 	<name>BlueMapCustomSkinProvider</name>
 
 	<description>A paper plugin to use a custom skin server for BlueMap</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>16</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<url>https://github.com/TechnicJelle/BlueMapCustomSkinProvider</url>
@@ -23,16 +23,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.13.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<release>${java.version}</release>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.4.1</version>
+				<version>3.6.0</version>
 				<configuration>
 					<relocations>
 						<relocation>
