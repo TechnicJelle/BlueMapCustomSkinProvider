@@ -5,10 +5,14 @@
 Little addon for the people who want to use a custom skin server for [BlueMap](https://github.com/BlueMap-Minecraft/BlueMap).
 
 This is a Native BlueMap Addon, so it should be compatible with
-all platforms and all versions that BlueMap supports, including the CLI!\
+all platforms and all versions that BlueMap supports!\
 Just put the `.jar` file in BlueMap's `packs/` directory, and it should work out of the box.
 
 To reload this addon, just reload BlueMap itself with `/bluemap reload`.
+
+
+Running this addon on the BlueMap CLI is not yet supported, due to BlueMap limitations.\
+This functionality is planned to be added in the future, though!
 
 ## Config
 There's just one config option, the URL of the skin server:
