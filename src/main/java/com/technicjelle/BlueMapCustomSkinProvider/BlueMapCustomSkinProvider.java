@@ -35,7 +35,7 @@ public final class BlueMapCustomSkinProvider implements Runnable {
 	private @Nullable Config config;
 
 	private boolean isCLI = false;
-	private final Set<HashedPlayer> allPlayers = new HashSet<>();
+	private final Set<Player> allPlayers = new HashSet<>();
 
 	@Override
 	public void run() {
@@ -82,7 +82,7 @@ public final class BlueMapCustomSkinProvider implements Runnable {
 				//BlueMap is attached to a server, so we remember all players from there
 				Plugin plugin = ((PluginImpl) api.getPlugin()).getPlugin();
 				Collection<Player> players = plugin.getServerInterface().getOnlinePlayers();
-				for (Player player : players) allPlayers.add(new HashedPlayer(player));
+				allPlayers.addAll(players);
 			}
 
 			String uuid = playerUUID.toString();
@@ -103,9 +103,9 @@ public final class BlueMapCustomSkinProvider implements Runnable {
 		if (!isCLI) {
 			//BlueMap is attached to a server, so we can get the username from the remembered players
 			Optional<String> serverName = allPlayers.stream()
-					.filter(player -> player.player().getUuid().equals(uuid))
+					.filter(player -> player.getUuid().equals(uuid))
 					.findFirst()
-					.map(hashedPlayer -> hashedPlayer.player().getName().toPlainString());
+					.map(hashedPlayer -> hashedPlayer.getName().toPlainString());
 			if (serverName.isPresent()) return serverName.get();
 		}
 
