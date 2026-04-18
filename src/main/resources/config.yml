@@ -1,3 +1,5 @@
 # Available placeholders: {UUID},{UUID-},{USERNAME}
 # {UUID-}: UUID of the player without "-"
+# Supports PAPI placeholders!
+# Example: %player_displayname% (don't forget to install extension in PAPI -> /papi ecloud download Player)
 url: "https://minotar.net/skin/{UUID}"
