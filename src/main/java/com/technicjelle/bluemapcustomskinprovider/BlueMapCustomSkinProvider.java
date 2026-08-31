@@ -4,6 +4,7 @@ import com.technicjelle.UpdateChecker;
 import de.bluecolored.bluemap.api.BlueMapAPI;
 import de.bluecolored.bluemap.api.plugin.SkinProvider;
 import org.bstats.bukkit.Metrics;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
@@ -56,6 +57,7 @@ public final class BlueMapCustomSkinProvider extends JavaPlugin {
 					.replace("{UUID}", uuid)
 					.replace("{USERNAME}", username)
 					.replace("{UUID-}", uuid.replace("-", ""));
+			localUrl = PAPIUtil.processPAPI(Bukkit.getPlayer(playerUUID), localUrl);
 			getLogger().info("Downloading skin for " + username + " from " + localUrl);
 			BufferedImage img = downloadImage(localUrl);
 			return Optional.ofNullable(img);
